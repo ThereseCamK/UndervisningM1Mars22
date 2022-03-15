@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        table{
+            border: 2px solid blue;
+            border-collapse: collapse;
+        }
+        tr, td, th{
+            border: 1px dotted hotpink;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://www.vg.no/">vg</a>
+    <!-- Linker-->
+    <h1>Header størst</h1>
+    <h6>Header minst</h6>
+
+    <pre>Hei dette er pre
+        Hei dette er pre Hei dette er pre Hei dette er pre 
+        Hei dette er pre Hei dette er pre Hei dette er pre Hei dette er pre Hei dette er pre Hei dette er 
+        pre Hei dette er pre Hei dette er pre 
+    </pre>
+
+    <hr>
+    <ol>
+        <li>Therese</li>
+        <li>Dani</li>
+    </ol>
+        <ul>Adrian</ul>
+        <ul>Kevin</ul>
+
+      <ol>
+            <ul>kaffe</ul>
+            <ul>te</ul>
+
+      </ol>  
+
+    <table>
+        <tr> <th>Navn</th> <th>Alder</th></tr>
+        <tr><td>Therese</td><td>31</td></tr>
+        <tr><td>Morten</td> <td>24</td></tr>
+
+    </table>
+    <form>
+    <h1 id="text"></h1>
+    <input type="text" onchange="showInputText(this.value)">
+    <input type="range" min="1" max="10">
+    <input type="password"> 
+    <input type="search">
+    <input type="number">
+    <input type="color">
+    <input type="tel">
+    <input type="time">
+    <input type="date">
+    <input type="reset" value="reset">
+    </form>
+<hr>
+    <input type="radio" onclick="showAge(this)" name="alder" value="30"> 30
+    <input type="radio" onclick="showAge(this)" name="alder" value="31"> 31
+    <input type="radio" onclick="showAge(this)" name="alder" value="32"> 32
+<hr>
+    <input type="checkbox">therese
+    <input type="checkbox"> bjørnar
+    <input type="checkbox">Joakim
+    <div onclick="changepage(this)">2</div>
+
+    <textarea></textarea>
+    
+    <script>
+
+
+
+        function changepage(value){
+                //2 == '2' (samme verdi)
+                //2 === '2' (ikke samme verdi)
+            if(value.innerHTML === 2){
+                value.innerHTML = 'hade'
+            }
+            else{
+                value.innerHTML = 'hei';
+            }
+       
+        }
+
+        function showAge(checked){
+            document.getElementById('text').innerHTML = checked.value;
+            console.log(checked.value)
+            
+        }
+        //string = text
+        //therese
+        //0 = t
+        //1 = h
+        //2 = e
+        function showInputText(elementVerdi){
+            var firstLetter = elementVerdi.charAt(0).toUpperCase();
+            var last = elementVerdi.slice(1);
+            document.getElementById('text').innerHTML = firstLetter + last;
+            // document.getElementById('text').innerHTML = elementVerdi.cap;
+            
+            //document.getElementById('text').innerHTML = elementVerdi.split("").reverse().join('');
+        }
+
+        function resetButton(){
+            document.getElementById('text').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
