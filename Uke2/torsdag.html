@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Lag flere div’er med navn, 
+        -> ta med alder og bosted som parameter, i en onclick funksjon
+
+        -> skal kunne trykke på et navn og da vises det en tekst med navnet på den du trykte på samt, alderen og bostedet tilhørende personen. 
+
+        ->lag også en funksjon som tar imot 2 parameter,
+            dette skal være 2 tall som plusses sammen. så vises summen ett sted på skjermen. 
+    -->
+
+    <div onclick="a1(this, 31, 'Larvik')"> Therese</div>
+    <div onclick="a1(this, 58, 'Hakkebakkeskogen')">Kåre kanin</div>
+
+    <div id="matte"></div>
+
+    <script>
+
+        // var x = 5;
+        // var y = 7;
+        // var z = x + y;
+        //document.getElementById('matte').innerHTML = 'svaret er: ' + z;
+
+
+
+        // function sum(n1, n2){
+        //     return n1 + n2;
+        // }
+        // document.getElementById('matte').innerHTML = sum(1,2)
+        
+
+            var x = Math.floor(Math.random() * 25)
+            var y = Math.floor(Math.random() * 25)
+
+            //Math.floor runder opp til helt tall
+            
+        summer(x,y)
+        function summer(n1, n2){
+            console.log('n1 ' + n1 + ' nr2. ' + n2)
+            var sum = n1+ n2;
+            document.getElementById('matte').innerHTML = sum
+
+        }
+        
+
+
+        function a1(navn, alder, bosted){
+
+            navn.innerHTML = 'Hei ' + navn.innerHTML + ` alder: ${alder}
+             bosted: ${bosted}`;
+           
+           //alert(navn.innerHTML + alder + bosted)
+
+
+        }
+
+        
+        //NOTE avansert måte
+        // function sum1(){
+        //     let sum = 0;
+        //     for(let i = 0; i < arguments.length; i++){
+        //         sum += arguments[i];
+                
+        //     }
+        //     return sum;
+        // }
+        // document.getElementById('matte').innerHTML = sum1(2, 4, 6);
+
+    </script>
+
+</body>
+</html>
