@@ -21,7 +21,7 @@
 function showtext(){
     //document.getElementById('showText').innerHTML = 'Hei'
 
-    showText = '&#9734';
+    showText = 'Hei';
     show();
     
     

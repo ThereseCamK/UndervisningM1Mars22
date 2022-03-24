@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"></div>
+    
+<!--     
+    FRIVILLIG OPPGAVE   vi går gjennom løsning i codeAlongen på Torsdag 
+
+    -> MVC - Pattern
+    
+     i modellen lag en variabel med random tall 
+    lag en input med tallverdi, 
+    lag dermed en funksjon(controller) som sjekker om input er det samme som det tilfeldige tallet. 
+    vis i view en tekst som sier om man har gjettet riktig eller ikke.
+    
+    får du til å sjekke om man må gjette høyere eller lavere er det en bonus -->
+<script>
+    //model
+
+    var randomNumber = Math.floor(Math.random()*10);
+    var answerText = '';
+  
+    //view
+    show();
+    function show(){
+        document.getElementById('content').innerHTML = `
+        <p>Gjett Nummer</p>
+        <input type="number" onchange="checkInput(this.value)" >
+        <p>${answerText}</p>
+        `;
+       
+    }
+    //controller
+
+    function checkInput(inputNumber){
+        if (inputNumber < randomNumber){
+            answerText += `<br> Nummer ${inputNumber} er for lavt! prøv igjen..`
+        }
+        if (inputNumber > randomNumber){
+            answerText += `<br> Nummer ${inputNumber} er for høyt! prøv igjen..`
+        }
+
+        if(inputNumber == randomNumber){
+            answerText += `<br> Nummer ${inputNumber} var riktig:D HURRA`;
+        }
+        else {
+            answerText += `<br> Nummer ${inputNumber} var feil! BUHU`;
+        }
+       show();
+
+    }
+</script>
+
+</body>
+</html>
