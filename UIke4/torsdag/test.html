@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.18.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.18.1.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+<script>
+  
+        var resultatDiv = '';
+        var tallAInput = '';
+        var tallBInput = '';
+        var omrekts = '';
+        var areal = '';
+
+         function render(){}
+
+      QUnit.test('omkrets', function(assert) {
+        tallAInput = 10;
+        tallBInput = 10;
+        showInfo()
+        const actual = omrekts;
+        const expected = 40;
+        assert.equal(actual, expected);
+      });
+      
+      QUnit.test('areal', function(assert) {
+        tallAInput = 10;
+        tallBInput = 10;
+        showAreal()
+        const actual = areal;
+        const expected = 100;
+        assert.equal(actual, expected);
+      });
+  
+  </script>
