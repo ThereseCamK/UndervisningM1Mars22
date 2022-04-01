@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controller.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        //model
+
+        let resultatDiv = '';
+        let tallAInput = '';
+        let tallBInput = '';
+        let omrekts = '';
+        let areal = '';
+
+        //view
+        render();
+        function render(){
+            document.getElementById('app').innerHTML = `
+            <input type="range" min="1" max="1000" step="1" value="${tallAInput}" oninput="tallAInput = this.value">
+            <input type="range" min="1" max="1000" step="1" value="${tallBInput}" oninput="tallBInput = this.value">
+            <button onclick="showInfo()"> lag div</button>
+            <div>${resultatDiv}</div>
+            `;
+        }
+
+        //controller
+
+       
+        
+    </script>
+</body>
+</html>
