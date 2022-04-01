@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.18.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.18.0.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+<script>
+    function add(a, b) {
+      return a + b;
+    }
+    let randomNumber = '';
+    let answerText = '';
+
+    function view(){}
+
+  
+    QUnit.module('add', function() {
+
+      QUnit.test('two numbers', function(assert) {
+
+        var faktiskVerdi = add(1, 2);
+        var forventetVerdi = 3;
+        assert.equal(faktiskVerdi, forventetVerdi, 'add 1 og 2 blir 3');
+      });
+
+      QUnit.test('tre numbers', function(assert) {
+        assert.equal(add(1, 2), 3);
+      });
+
+    });
+
+
+    QUnit.module('checkInput', function(){
+        QUnit.test('riktigInput', function(assert){
+            randomNumber = 5;
+            answerText = '';
+            checkNumber(5);
+            var faktiskVerdi = answerText;
+            var forventetVerdi = 'Du gjettet riktig';
+            assert.equal(faktiskVerdi, forventetVerdi);
+        });
+        QUnit.test('feilInput for lavt', function(assert){
+            randomNumber = 7;
+            answerText = '';
+            checkNumber(5);
+            var faktiskVerdi = answerText;
+            var forventetVerdi = 'Du gjettet for lavt';
+            assert.equal(faktiskVerdi, forventetVerdi, forventetVerdi);
+        });
+        QUnit.test('feilInput for høyt', function(assert){
+            randomNumber = 2;
+            answerText = '';
+            checkNumber(5);
+            var faktiskVerdi = answerText;
+            var forventetVerdi = 'Du gjettet for høyt';
+            assert.equal(faktiskVerdi, forventetVerdi, forventetVerdi);
+        });
+
+    })
+
+
+
+
+
+  </script>

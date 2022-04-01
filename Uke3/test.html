@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.18.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.18.0.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+<script>
+  
+  let NumberPushed = '';
+  let opendText = '';
+  let lockCombination = '';
+  let errorMessage = '';
+
+  function show(){}
+
+
+    QUnit.module('locCombination', function() {
+      QUnit.test('lock', function(assert) {
+
+        NumberPushed = '';
+          lockCombination = '2345';
+          opendText = '';
+          selectNumber(2);
+          selectNumber(3);
+          selectNumber(4);
+          selectNumber(5);
+
+          var faktiskVerdi = opendText;
+          var forventetVerdi = 'Åpen';
+
+          assert.equal(faktiskVerdi, forventetVerdi)
+       
+      });
+      QUnit.test('to many numbers', function(assert) {
+
+                NumberPushed = '';
+                lockCombination = '2345';
+                opendText = '';
+                selectNumber(2);
+                selectNumber(3);
+                selectNumber(4);
+                selectNumber(5);
+                selectNumber(5);
+
+                var faktiskVerdi = errorMessage;
+                var forventetVerdi = 'Du har tastet inn for mange tall';
+
+                assert.equal(faktiskVerdi, forventetVerdi)
+        
+        });
+    });
+  </script>

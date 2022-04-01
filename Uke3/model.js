@@ -3,3 +3,4 @@
   var NumberPushed = '';
   var lockCombination = '22213';
   var opendText = '';
+  var errorMessage = '';

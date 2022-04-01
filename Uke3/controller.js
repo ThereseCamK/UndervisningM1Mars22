@@ -1,16 +1,29 @@
  //Controller
 
  function selectNumber(number){
-    NumberPushed += number;
 
-    opendText = NumberPushed == lockCombination ?  'Åpen' : 'Låst';
-    // if(NumberPushed == lockCombination){
-    //     opendText = 'Åpen';
+    if(NumberPushed.length < 4){
+       
+    NumberPushed += number;
+  
+       
+    }
+    else {
+        errorMessage = 'Du har tastet inn for mange tall'
+    }
+
+
+    //opendText = NumberPushed == lockCombination ?  'Åpen' : 'Låst';
+
+
+    if(NumberPushed == lockCombination){
+        opendText = 'Åpen';
       
-    // }
-    // else {
-    //     opendText = 'Låst'
-    // }
+    }
+
+    else {
+        opendText = 'Låst';
+    }
      show();
 
     //Turnarary operator 
