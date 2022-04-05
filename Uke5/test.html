@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.18.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.18.1.js"></script>
+  <script src="controller.js"></script>
+</body>
+
+<script>
+        let fotballLag = [ ];
+        let fotball = '';
+        function view(){}
+
+      QUnit.test('legg til fotballLag', function(assert) {
+          fotball = 'VIF';
+          fotballLag = ['SF'];
+        leggTilFotballLag();
+
+        // var faktiskVerdi = fotballLag;
+        // var forventetVerdi = ['SF','VIF' ]
+        var faktiskVerdi = fotballLag.length
+        var forventetVerdi = 2;
+        assert.deepEqual(faktiskVerdi, forventetVerdi);
+      });
+
+      QUnit.test('slette  fotballLag', function(assert) {
+
+          fotballLag = ['SF', 'VIF', 'SF'];
+          slettFotballLag(1);
+          slettFotballLag(1);
+
+        var faktiskVerdi = fotballLag;
+        var forventetVerdi = ['SF' ]
+        var faktisklengde = fotballLag.length
+        var forventetLengde = 1;
+        assert.deepEqual(faktiskVerdi, forventetVerdi);
+        assert.equal(faktisklengde, forventetLengde, 'lengde')
+      });
+
+      QUnit.test('endre  fotballLag', function(assert) {
+            fotball = 'RBK'
+            fotballLag = ['SF', 'VIF', 'AJAX'];
+            endreFotballLag(2);
+         
+
+            var faktiskVerdi = fotballLag;
+            var forventetVerdi = ['SF', 'VIF', 'RBK' ]
+
+            assert.deepEqual(faktiskVerdi, forventetVerdi);
+            
+});
+
+
+
+
+  </script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controller.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+
+    <script>
+
+        //Model
+
+
+        let fotballLag = ['SF', 'TIL', 'Ajax', 'HIF'  ];
+        let fotball = '';
+      
+
+        // console.log(fotballLag[0]);
+        // console.log(fotballLag[1]);
+        // console.log(fotballLag[2]);
+        // console.log(fotballLag[3]);
+            view()
+            function view(){
+                let html = '';
+
+                    for(let i = 0; i < fotballLag.length; i++ ){
+                    html += `<h1>${fotballLag[i]}</h1>
+                    <button onclick="slettFotballLag(${i})">x</button> 
+                    <button onclick="endreFotballLag(${i})">endre </button><hr>`;
+                }
+
+                html += `<input type="text" oninput="fotball = this.value"> 
+                <button onclick="leggTilFotballLag()">legg til</button>
+         `
+
+                document.getElementById('app').innerHTML = html;
+            }
+
+            //controller 
+
+          
+
+       
+        
+
+
+            let i = 0;
+        while(i < fotballLag.length){
+            console.log(fotballLag[i], 'while');
+            i++;
+        }
+        
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>
