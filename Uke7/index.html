@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekter</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        //Model
+
+        let Thereseobj = {navn: 'Therese', alder: 32, bosted: 'Helgeroa'};
+        let elevobj = {navn: 'Kåre', alder: 24, bosted: 'Toten'};
+
+        let listeAvMennesker = [Thereseobj, elevobj];
+
+
+
+        let listeAvFolk =[
+            {
+                navn: 'Therese', 
+                alder: 32, 
+                bosted: 'Helgeroa'
+            },
+            {
+             navn: 'Kåre',
+             alder: 24, 
+             bosted: 'Toten',
+            }
+        ]
+
+        const model ={
+
+            velkomsttekst: 'Velkommen',
+
+            login:{
+                passord: '',
+                brukernavn: '',
+            },
+
+            newuser:{
+                passord: '',
+                navn: '',
+                brukernavn: '',
+            },
+
+            users:[
+                {
+                    navn: 'therese',
+                    passord: '1234',
+                    brukernavn: 'therese@mail.no'
+                },
+                {
+                    navn: 'adrian',
+                    passord: 'knekk',
+                    brukernavn: 'adrian@mail.no'
+                },
+
+                {
+                    navn: 'dani',
+                    passord: 'klokke',
+                    brukernavn: 'dani@mail.no'
+                },
+
+            ],
+
+
+        }
+
+        //View
+        show()
+
+        function show(){
+
+            let html = '';
+            html += `${model.velkomsttekst} <br> 
+            ${listeAvFolk[1].navn}
+                <br>
+            
+            Brukernavn: <input type="text" oninput="model.login.brukernavn = this.value"> 
+            Passord: <input type="text" oninput="model.login.passord = this.value"> 
+
+            <button onclick="logIn()"> LogIn </button>
+                <hr>
+              navn  <input type="text" oninput="model.newuser.navn = this.value"> <br>
+              brukernavn  <input type="text" oninput="model.newuser.brukernavn = this.value"> <br>
+              passord  <input type="text" oninput="model.newuser.passord = this.value"> <br>
+              <button onclick="registrer()"> Registrer</button>
+            `
+
+            document.getElementById('app').innerHTML = html;
+
+        }
+
+        //Controller
+
+        function logIn(){
+
+            for(let i = 0; i <model.users.length; i++){
+                if( model.login.brukernavn == model.users[i].brukernavn &&
+                    model.login.passord == model.users[i].passord){
+                    alert('Du Er logget inn som '+ model.users[i].navn)
+                    return;
+                }
+                else if(i == model.users.length -1){
+                    alert('Feil brukernavn og eller passord')
+                }
+            }
+
+
+        }
+
+        function registrer(){
+        
+            model.users.push({
+                navn: model.newuser.navn,
+                brukernavn: model.newuser.brukernavn,
+                passord: model.newuser.passord
+            })
+
+            
+        
+        }
+
+
+
+    </script>
+</body>
+</html>
