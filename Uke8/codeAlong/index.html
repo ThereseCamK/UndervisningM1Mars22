@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .magicBall{
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            /* display: flex; */
+            text-align: center;
+            /* justify-content: center; */
+            vertical-align: middle;
+            /* align-items: center; */
+            line-height: 400px;
+            box-shadow: 20px 10px 50px inset grey;
+            font-size: 50px;
+            text-shadow: 2px 2px  purple;
+        }
+        </style>
+</head>
+<body>
+
+    <!-- Find, includes map og filter  -->
+
+    <div id="app"></div>
+
+    <script>
+
+            //Model
+
+            let ballBrain = ['Ja', 'Absolutt Ikke!',
+             'indoubidably', 'glem det', 'Skål',
+             'Ja for faen', 'faen veit væll æ', 'Det skal du bare drite i']
+
+      
+             let tekst = '8';
+
+             let newBall = [];
+            //View
+            show();
+            function show(){
+                let html = "hei";
+                
+                html += `<div class="magicBall" onclick = "showAnswer()">${tekst}</div>
+
+                <div></div>
+                `
+                newBall.map(i => html += `${i} <br>`)
+                
+                document.getElementById('app').innerHTML = html;
+            }
+
+
+            //Controller 
+            function showAnswer() {
+                let pickedAnswer = Math.floor(Math.random() * ballBrain.length);
+                if(ballBrain != ''){
+                    tekst = ballBrain[pickedAnswer];
+                    newBall.push(ballBrain[pickedAnswer])
+                    ballBrain.splice(pickedAnswer, 1)
+                } 
+                else tekst ='OUT OF ORDER';
+           
+            show()
+
+            }
+
+
+
+    </script>
+</body>
+</html>
