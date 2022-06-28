@@ -71,40 +71,40 @@
         
         }
 
-        function turnOff(selectedElement){
-            var selectedElementClass = selectedElement.classList;
-            console.log(selectedElementClass)
-            if(selectedElementClass.contains('lightOn')){
-                let finishTime = new Date().getTime();
-                let spentMillseconds = Math.floor(finishTime - startTime);
-                let spentSeconds = spentMillseconds / 1000;
-                console.log(spentMillseconds, spentSeconds)
-                info = `Du brukte: ${spentSeconds} sekunder:`;
-                 startTime = new Date().getTime();
-                selectedElementClass.remove('lightOn');
-                randomLightIndex = lightOn();
-                updateView();
-            }
+        // function turnOff(selectedElement){
+        //     var selectedElementClass = selectedElement.classList;
+        //     console.log(selectedElementClass)
+        //     if(selectedElementClass.contains('lightOn')){
+        //         let finishTime = new Date().getTime();
+        //         let spentMillseconds = Math.floor(finishTime - startTime);
+        //         let spentSeconds = spentMillseconds / 1000;
+        //         console.log(spentMillseconds, spentSeconds)
+        //         info = `Du brukte: ${spentSeconds} sekunder:`;
+        //          startTime = new Date().getTime();
+        //         selectedElementClass.remove('lightOn');
+        //         randomLightIndex = lightOn();
+        //         updateView();
+        //     }
        
      
-        }
+        // }
 
 
-        function turnOff(i){
-    pickedButton = i;
-    if(pickedButton == randomLightIndex){
-        score++
-        var finish = new Date().getTime();
-        var spentMilliSecends = Math.floor(finish - start);
-        console.log(spentMilliSecends, 'millisekunder')
-        end =  spentMilliSecends / 1000;
-        start = new Date().getTime();
+                    function turnOff(i){
+                pickedButton = i;
+                if(pickedButton == randomLightIndex){
+                    score++
+                    var finish = new Date().getTime();
+                    var spentMilliSecends = Math.floor(finish - start);
+                    console.log(spentMilliSecends, 'millisekunder')
+                    end =  spentMilliSecends / 1000;
+                    start = new Date().getTime();
 
-        lightOn();
-    }
+                    lightOn();
+                }
 
-    updateView();
-}
+                updateView();
+            }
 
     </script>
 </body>
